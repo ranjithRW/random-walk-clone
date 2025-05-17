@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GSAP ScrollTrigger markers - remove in production */
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end,
+.gsap-marker-start,
+.gsap-marker-end {
+  display: none !important;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Performance optimizations */
+*, *::before, *::after {
+  will-change: transform, opacity;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+body {
+  @apply antialiased;
+  font-family: 'Montserrat', sans-serif;
+  overscroll-behavior: none;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  @apply bg-gradient-to-r from-[#3c54a9] to-[#aa4473] bg-clip-text text-transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#f1f1f1];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#3c54a9] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#2a3a6e];
+}
